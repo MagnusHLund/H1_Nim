@@ -50,8 +50,28 @@
                     break;
                 }
 
-                // Calls the GameOver method, to check if the game has ended
-                GameOver();
+                // if sticks are below 1, then then set sticks to 1
+                if (sticks <= 0)
+                    sticks = 1;
+
+                // Displays the sticks on the table, in the console
+                Console.WriteLine($"Pinde på bordet: {sticks}");
+
+                // if the "sticks" variable is 1, then it figures out the winner, based on the playersTurn variable
+                if (sticks == 1)
+                {
+                    if (playersTurn)
+                    {
+                        Console.WriteLine("Player won!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Computer won!");
+                    }
+
+                    // Sets the gameOver boolean variable to true, because the game ended
+                    gameOver = true;
+                }
 
                 // Changes the players turn to false, as well as breaking out of the loop, if the game is over
                 playersTurn = false;
@@ -68,39 +88,33 @@
                 else
                     sticks -= random.Next(1, sticks);
 
-                // Run the "GameOver" method
-                GameOver();
+                // if sticks are below 1, then then set sticks to 1
+                if (sticks <= 0)
+                    sticks = 1;
+
+                // Displays the sticks on the table, in the console
+                Console.WriteLine($"Pinde på bordet: {sticks}");
+
+                // if the "sticks" variable is 1, then it figures out the winner, based on the playersTurn variable
+                if (sticks == 1)
+                {
+                    if (playersTurn)
+                    {
+                        Console.WriteLine("Player won!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Computer won!");
+                    }
+
+                    // Sets the gameOver boolean variable to true, because the game ended
+                    gameOver = true;
+                }
 
                 // Changes the players turn to true, as well as breaking out of the loop, if the game is over
                 playersTurn = true;
                 if (gameOver)
                     break;
-            }
-        }
-
-        static void GameOver()
-        {
-            // if sticks are below 1, then then set sticks to 1
-            if (sticks <= 0)
-                sticks = 1;
-
-            // Displays the sticks on the table, in the console
-            Console.WriteLine($"Pinde på bordet: {sticks}");
-
-            // if the "sticks" variable is 1, then it figures out the winner, based on the playersTurn variable
-            if (sticks == 1)
-            {
-                if (playersTurn)
-                {
-                    Console.WriteLine("Player won!");
-                }
-                else
-                {
-                    Console.WriteLine("Computer won!");
-                }
-
-                // Sets the gameOver boolean variable to true, because the game ended
-                gameOver = true;
             }
         }
     }
